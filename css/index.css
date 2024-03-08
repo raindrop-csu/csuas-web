@@ -1,0 +1,103 @@
+div.title {
+    height: 80px;
+    width: 80px;
+    background-image: url(../素材库/csuas.jpg);
+    background-size: contain;
+    display: inline-block;
+}
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+body {
+    background-color: #f3f5f7;
+}
+a.top {
+    text-decoration: none;
+    height: 40px;
+    width: 128px;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    line-height: 40px;
+}
+ul.colorblue {
+    background-color: #1E65B1;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    /* margin: 0 auto; */
+    /* height: 40px;
+    width: 720px; */
+    text-align: center;
+}
+a.top:hover {
+    background-color: #2D97DB;
+}
+img.csuas {
+    height: 80px;
+    width: 80px;
+}
+div.marginauto {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 12px 0;
+    font-size: 0;
+    background-color: #fff;
+}
+a.logo {
+    height: 80px;
+    width: 360px;
+    display: block;
+    background-image: url(../素材库/csuas.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+span.title {
+    text-align: center;
+    margin-left: 30px;
+}
+div.csuas {
+    display: inline-block;
+    height: 80px;
+    width: 80px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+}
+li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+div.title2 {
+    border: 1px solid #333;
+    border-radius: 30px;
+    height: 80px;
+    width: 240px;
+    display: inline-block;
+    margin: 0 0 0 40px;
+    box-sizing: border-box;
+    padding: 0 0 0 0;
+    vertical-align: top;
+}
+div.chinesetitle {
+    font-weight: 400;
+    height: 44px;
+    font-size: 24px;
+    padding: 0;
+    line-height: 44px;
+}
+div.englishtitle {
+    font-weight: 400;
+    height: 36px;
+    font-size: 16px;
+    line-height: 36px;
+}
+/* 这之前是每个主页都有的 */

@@ -1,0 +1,11 @@
+ul.colorblue li:nth-child(1){
+    background-color: #2D97DB;
+}
+div.banner {
+    height: 400px;
+    background-color: pink;
+}
+div.banner div.wrapper {
+    height: 400px;
+    background-color: skyblue;
+}

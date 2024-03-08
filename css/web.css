@@ -1,0 +1,81 @@
+div.main {
+    background-color: skyblue;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-evenly;
+    
+}
+div.main h2 {
+    margin: 16px;
+    font-weight: 400;
+    text-align: center;
+    font-size: 24px;
+}
+div.main a.question {
+    display: inline-block;
+    width: 360px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 9px;
+}
+div.main a.title {
+    display: block;
+    width: 360px;
+    text-align: center;
+    text-decoration: none;
+}
+div.darkmap {
+    background-color: pink;
+}
+div.laysky {
+    background-color: orange;
+}
+div.stellarium {
+    background-color: orange;
+}
+div.nmc {
+    background-color: lightgoldenrodyellow;
+}
+div.mufu {
+    background-color: #2A8ABD;
+}
+div.istarshooter {
+    background-color: #2A8ABD;
+}
+div.total {
+    width: 360px;
+    height: 275px;
+}
+div.total img {
+    height: 158px;
+    width: 158px;
+    display: inline-block;
+    margin: 0px 15px;
+    border-radius: 18px;
+    border: 1px solid #333;
+}
+div.total div{
+    padding: 8px;
+    box-sizing: border-box;
+    background-color: #ddd;
+    border: 1px solid #333;
+    border-radius: 18px;
+    text-indent: 32px;
+    height: 160px;
+    width: 148px;
+    float: right;
+    margin: 0px 15px 0px 5px;
+}
+ul.colorblue li:nth-child(7){
+    background-color: #2D97DB;
+}
+div.main > div {
+    border: 1px solid #333;
+    border: 1;
+    margin: 20px;
+    border-radius: 40px;
+    box-sizing: border-box;
+}
