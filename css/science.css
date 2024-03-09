@@ -111,3 +111,83 @@ div.planet8 {
 .clearfix::after {
     clear: both;
 }
+/* 上面是太阳系的部分 */
+/* 下面是介绍和其他部分 */
+div.banner {
+    height: 400px;
+    background-color: #666;
+}
+div.banner div.wrapper {
+    height: 400px;
+    background-color: #444;
+    color: #F3F5F7;
+}
+div.wrapper div.bd {
+    display: inline-block;
+}
+div.wrapper div.hd {
+    background-image: url(../素材库/telescope.png);
+    background-repeat: no-repeat;
+    background-color: #444;
+    background-position: 1050px 200px;
+}
+div.wrapper div.hd > div.bd,
+div.wrapper div.hd ul {
+    vertical-align: top;
+}
+div.wrapper h2 {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    font-weight: 400;
+}
+div.wrapper ul {
+    display: inline-block;
+}
+div.bd div {
+    display: inline-block;
+    height: 320px;
+    vertical-align: top;
+}
+div.wrapper ul.left {
+    padding: 10px 0;
+    width: 200px;
+    height: 320px;
+}
+div.wrapper ul.left li {
+    display: block;
+    
+}
+div.wrapper ul.left a {
+    /* 块级：宽度是父级的100% */
+    text-align: center;
+    line-height: 50px;
+    display: block;
+    height: 50px;
+    text-decoration: none;
+    line-height: 46px;
+    font-size: 20px;
+    color: #fff;
+}
+div.wrapper ul.left a:hover {
+    background-color: #666;
+}
+div.wrapper div.bd div.left {
+    width: 840px;
+}
+div.wrapper div.bd div.right {
+    width: 150px;
+}
+div.wrapper div.bd div.right a {
+    width: 150px;
+    height: 170px;
+    margin-top: 170px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+div.wrapper div.bd div.right a:hover {
+    color: yellow;
+}

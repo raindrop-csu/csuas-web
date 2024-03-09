@@ -9,3 +9,54 @@ div.banner div.wrapper {
     height: 400px;
     background-color: skyblue;
 }
+div.wrapper div.bd {
+    display: inline-block;
+}
+div.wrapper div.hd {
+    background-image: url(../素材库/telescope.png);
+    background-repeat: no-repeat;
+    background-color: skyblue;
+    background-position: 1050px 200px;
+}
+div.wrapper div.hd > div.bd,
+div.wrapper div.hd ul {
+    vertical-align: top;
+}
+div.wrapper h2 {
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    font-weight: 400;
+}
+div.wrapper ul {
+    display: inline-block;
+}
+div.bd div {
+    display: inline-block;
+    height: 320px;
+    vertical-align: top;
+}
+div.wrapper ul.left {
+    padding: 10px 0;
+    width: 200px;
+    height: 320px;
+    background-color: rgba(0,0,0,0.42);
+}
+div.wrapper ul.left li {
+    display: block;
+    
+}
+div.wrapper ul.left a {
+    /* 块级：宽度是父级的100% */
+    text-align: center;
+    line-height: 50px;
+    display: block;
+    height: 50px;
+    text-decoration: none;
+    line-height: 46px;
+    font-size: 20px;
+    color: #fff;
+}
+div.wrapper ul.left a:hover {
+    background-color: skyblue;
+}
