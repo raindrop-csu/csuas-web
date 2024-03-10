@@ -22,7 +22,12 @@ a.top {
     color: #fff;
     line-height: 40px;
 }
+div.blue {
+    background-color: #1E65B1;
+}
 ul.colorblue {
+    width: 1200px;
+    margin: 0 auto;
     background-color: #1E65B1;
     font-size: 0;
     display: flex;

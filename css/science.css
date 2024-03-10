@@ -3,6 +3,7 @@ ul.colorblue li:nth-child(4){
 }
 div.solorsystem {
     background: #444;
+    box-sizing: border-box;
     padding: 20px 20px 50px 0;
     display: flex;
     justify-content: space-between;
@@ -16,11 +17,11 @@ div.solorsystem div {
 }
 div.sun {
     height: 164.32px;
-    width: 82.16px;
-    border-radius: 0 82.16px 82.16px 0;
+    width: 164.32px;
+    border-radius: 82.16px;
     font-size: 25px;
     display: inline-block;
-    background-image: url(../素材库/sun.jpg);
+    background-image: url(../素材库/sun2.jpg);
 }
 div.solorsystem a {
     display: block;
@@ -48,10 +49,10 @@ div.solorsystem div {
     margin: auto 10px auto 10px;
 }
 div.solorsystem div:nth-child(1) {
-    margin: 0 10px 0 0;
+    margin: 0 10px 0 30px;
 }
 div.sun a {
-    text-align: left;
+    text-align: center;
 }
 div.planet1 a {
     font-size: 14.9px;
@@ -111,9 +112,12 @@ div.planet8 {
 .clearfix::after {
     clear: both;
 }
+div.setbgc {
+    background-color: #666;
+}
 /* 上面是太阳系的部分 */
 /* 下面是介绍和其他部分 */
-div.banner {
+div.banner{
     height: 400px;
     background-color: #666;
 }
@@ -129,7 +133,7 @@ div.wrapper div.hd {
     background-image: url(../素材库/telescope.png);
     background-repeat: no-repeat;
     background-color: #444;
-    background-position: 1050px 200px;
+    background-position: 1060px 200px;
 }
 div.wrapper div.hd > div.bd,
 div.wrapper div.hd ul {
