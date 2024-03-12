@@ -11,12 +11,13 @@ div.banner div.wrapper {
 }
 div.wrapper div.bd {
     display: inline-block;
+    margin-left: -5px;
 }
 div.wrapper div.hd {
     background-image: url(../素材库/telescope.png);
     background-repeat: no-repeat;
     background-color: skyblue;
-    background-position: 1050px 200px;
+    background-position: 1040px 260px;
 }
 div.wrapper div.hd > div.bd,
 div.wrapper div.hd ul {
@@ -39,7 +40,7 @@ div.bd div {
 div.wrapper ul.left {
     padding: 10px 0;
     width: 200px;
-    height: 320px;
+    height: 380px;
     background-color: rgba(0,0,0,0.42);
 }
 div.wrapper ul.left li {
@@ -59,4 +60,48 @@ div.wrapper ul.left a {
 }
 div.wrapper ul.left a:hover {
     background-color: skyblue;
+}
+div.wrapper div.bd div.left {
+  height: 400px;
+  width: 800px;
+  position: relative;
+}
+div.wrapper div.bd div.left ul {
+    background-color: pink;
+    height: 400px;
+    width: 800px;
+    overflow: hidden;
+    /* display: block; */
+}
+div.wrapper div.bd div.left ul li {
+  height: 400px;
+  width: 800px;
+  text-align: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+div.wrapper div.bd div.left img {
+  height: 400px;
+  /* text-align: center; */
+  margin: 0 auto;
+  display: inline-block;
+}
+div.wrapper div.bd div.left a {
+  margin: 0 auto;
+}
+a.pre {
+  height: 400px;
+  width: 40px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+a.next {
+  height: 400px;
+  width: 40px;
+  right: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
