@@ -45,6 +45,15 @@ div.mufu {
 div.istarshooter {
     background-color: #2A8ABD;
 }
+div.interestingsky {
+    background-color: orange;
+}
+div.weather {
+  background-color: lightgoldenrodyellow;
+}
+div.cnsa {
+  background-color: orange;
+}
 div.total {
     width: 360px;
     height: 275px;

@@ -3,11 +3,11 @@ ul.colorblue li:nth-child(1){
 }
 div.banner {
     height: 400px;
-    background-color: pink;
+    /* background-color: pink; */
 }
 div.banner div.wrapper {
     height: 400px;
-    background-color: skyblue;
+    background-color: lightblue;
 }
 div.wrapper div.bd {
     display: inline-block;
@@ -61,13 +61,16 @@ div.wrapper ul.left a {
 div.wrapper ul.left a:hover {
     background-color: skyblue;
 }
+a.leftnow {
+  background-color: skyblue;
+}
 div.wrapper div.bd div.left {
   height: 400px;
   width: 800px;
   position: relative;
 }
 div.wrapper div.bd div.left ul {
-    background-color: pink;
+    /* background-color: pink; */
     height: 400px;
     width: 800px;
     overflow: hidden;
@@ -86,20 +89,28 @@ div.wrapper div.bd div.left img {
   margin: 0 auto;
   display: inline-block;
 }
+div.wrapper div.bd div.right {
+  height: 400px;
+  width: 194px;
+  border-left: #999 1px solid;
+  background-color: rgba(255,255,255,0.22);
+}
 div.wrapper div.bd div.left a {
   margin: 0 auto;
 }
-a.pre {
+button.pre {
   height: 400px;
   width: 40px;
   position: absolute;
   top: 50%;
   left: 0;
+  line-height: 20px;
   transform: translateY(-50%);
 }
-a.next {
+button.next {
   height: 400px;
   width: 40px;
+  line-height: 20px;
   right: 0;
   position: absolute;
   top: 50%;

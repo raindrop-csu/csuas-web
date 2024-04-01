@@ -54,6 +54,9 @@ div.marginauto {
     font-size: 0;
     background-color: #fff;
 }
+div.topright {
+  display: inline-block;
+}
 a.logo {
     height: 80px;
     width: 360px;
