@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #pause,#reset {
+      left: -3500px;
+      top: -3500px;
+    }
+    .total {
+      height: 8000px;
+      width: 8000px;
+      background-color: #333;
+      position: absolute;
+      left: -3500px;
+      top: -3800px;
+    }
+    .hide {
+      display: none;
+    }
+    .earth {
+      height: 127.42px;
+      width: 127.42px;
+      border-radius: 63.71px;
+      background-color: skyblue;
+      background-image: url(./earth.jpg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      left: 3936.29px;
+      top: 3936.29px;
+    }
+    .moon {
+      height: 6px;
+      width: 6px;
+      border-radius: 3px;
+      background-color: #fff;
+      left: 3997px;
+      top: 3997px;
+      position: absolute;
+    }
+    .tongbu {
+      height: 6px;
+      width: 6px;
+      border-radius: 3px;
+      background-color: skyblue;
+      left: 3997px;
+      top: 3997px;
+      position: absolute;
+    }
+    .truemoon {
+      height: 34.76px;
+      width: 34.76px;
+      border-radius: 17.38px;
+      background-color: #999;
+      left: 3982.62px;
+      top: 3982.62px;
+      position: absolute;
+    }
+    .beidou {
+      height: 6px;
+      width: 6px;
+      border-radius: 3px;
+      background-color: orange;
+      left: 3997px;
+      top: 3997px;
+      position: absolute;
+    }
+    .plane {
+      height: 4px;
+      width: 4px;
+      border-radius: 2px;
+      background-color: #fa0000;
+      left: 3998px;
+      top: 3998px;
+      position: absolute;
+    }
+    .plane2 {
+      height: 4px;
+      width: 4px;
+      border-radius: 2px;
+      background-color: #fa0000;
+      left: 3998px;
+      top: 3998px;
+      position: absolute;
+    }
+    .earth:hover {
+      transform: rotate(90deg);
+    }
+    .text {
+      width: 600px;
+      left: 3797px;
+      top: 4097px;
+      position: absolute;
+      color: #eee;
+    }
+    .text2 {
+      width: 600px;
+      left: 4097px;
+      top: 3947px;
+      position: absolute;
+      color: #eee;
+    }
+    .text3 {
+      width: 600px;
+      left: 3857px;
+      top: 3877px;
+      position: absolute;
+      color: #eee;
+      font-size: 24px;
+    }
+    .text4 {
+      width: 600px;
+      left: 3807px;
+      top: 3977px;
+      position: absolute;
+      color: #eee;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div class="total">
+    <div class="earth"></div>
+    <div class="plane"></div>
+    <div class="plane2"></div>
+    <div class="moon"></div>
+    <div class="beidou"></div>
+    <div class="tongbu"></div>
+    <div class="truemoon"></div>
+    <div class="text">
+      演示1秒=实际<span id="speed">1000</span>秒<br>卫星高度按照<b>真实比例</b>，人造卫星太小无法呈现真实比例<br>
+      拉到最底下看月球，月球的大小和高度均为<b>真实比例</b>(完整一圈请移动至4000,4000)<br>
+      <button id="reset">重置</button>
+      <button id="pause">暂停</button>
+      <button id="speedbutton">修改速度</button>
+      <button id="move">移动地球位置(刷新网页重置)</button><br>
+      添加卫星(仅支持圆形轨道)：
+      <button id="add">自定义添加(正在施工中)</button><br>
+    </div>
+    <div class="text2">红点:两架沿赤道飞的民航客机(一架向西一架向东，叠加地球自转)<br>
+      白点:近地轨道卫星（中国空间站等）<br>
+      蓝点:地球同步卫星(转完整一圈请移动地球位置到400,400)<br>
+      橙点:北斗卫星系统24颗MEO星高度<br></div>
+    <div class="text3">
+      地球卫星轨道模拟
+    </div>
+    <div class="text4"><button id="yincang">隐藏文本</button></div>
+  </div>
+  <script>
+    const earth = 63.71
+    const round = 5062.383
+    const moon = document.querySelector('div.moon')
+    const earth2 = document.querySelector('div.earth')
+    const plane = document.querySelector('div.plane')
+    const tongbu = document.querySelector('div.tongbu')
+    const beidou = document.querySelector('div.beidou')
+    const plane2 = document.querySelector('div.plane2')
+    const truemoon = document.querySelector('div.truemoon')
+    const span = document.querySelector('#span')
+    const total = document.querySelector('div.total')
+    let r = 1.07
+    let time = 0
+    let speednum = 1000
+    let timeid = setInterval(function(){
+      earth2.style.transform = `rotate(${-time/240}deg)`
+      moon.style.left = `${3997+1.07*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(1.07,3/2))))}px`
+      moon.style.top = `${3997+1.07*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(1.07,3/2))))}px`
+      plane.style.left = `${3998+1.0015*earth*Math.sin(2*Math.PI*(time/57600))}px`
+      plane.style.top = `${3998+1.0015*earth*Math.cos(2*Math.PI*(time/57600))}px`
+      plane2.style.left = `${3998+1.0015*earth*Math.sin(2*Math.PI*(time/172800))}px`
+      plane2.style.top = `${3998+1.0015*earth*Math.cos(2*Math.PI*(time/172800))}px`
+      truemoon.style.left = `${3982.62+61.336*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(61.336,3/2))))}px`
+      truemoon.style.top = `${3982.62+61.336*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(61.336,3/2))))}px`
+      beidou.style.left = `${3982.62+4.374*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(4.374,3/2))))}px`
+      beidou.style.top = `${3982.62+4.374*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(4.374,3/2))))}px`
+      tongbu.style.left = `${3997+6.65*earth*Math.sin(2*Math.PI*(time/86400))}px`
+      tongbu.style.top = `${3997+6.65*earth*Math.cos(2*Math.PI*(time/86400))}px`
+      time+=30
+    },30)
+    const reset = document.querySelector('#reset')
+    const pause = document.querySelector('#pause')
+    const speedspan = document.querySelector('#speed')
+    const speedbutton = document.querySelector('#speedbutton')
+    const move = document.querySelector('#move')
+    const add = document.querySelector('#add')
+    const yincang = document.querySelector('#yincang')
+    const text = document.querySelector('.text')
+    const text2 = document.querySelector('.text2')
+    const text3 = document.querySelector('.text3')
+    let flag = 0
+    let i = 0
+    reset.addEventListener('click',function(){
+      if(flag%2===1){
+        pause.innerHTML = '暂停'
+        flag++
+      }
+      clearInterval(timeid)
+      time = 0
+      speednum = 1000
+      timeid = setInterval(function(){
+      earth2.style.transform = `rotate(${-time/240}deg)`
+      moon.style.left = `${3997+1.07*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(1.07,3/2))))}px`
+      moon.style.top = `${3997+1.07*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(1.07,3/2))))}px`
+      plane.style.left = `${3998+1.0015*earth*Math.sin(2*Math.PI*(time/57600))}px`
+      plane.style.top = `${3998+1.0015*earth*Math.cos(2*Math.PI*(time/57600))}px`
+      plane2.style.left = `${3998+1.0015*earth*Math.sin(2*Math.PI*(time/172800))}px`
+      plane2.style.top = `${3998+1.0015*earth*Math.cos(2*Math.PI*(time/172800))}px`
+      truemoon.style.left = `${3982.62+61.336*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(61.336,3/2))))}px`
+      truemoon.style.top = `${3982.62+61.336*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(61.336,3/2))))}px`
+      beidou.style.left = `${3982.62+4.374*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(4.374,3/2))))}px`
+      beidou.style.top = `${3982.62+4.374*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(4.374,3/2))))}px`
+      tongbu.style.left = `${3997+6.65*earth*Math.sin(2*Math.PI*(time/86400))}px`
+      tongbu.style.top = `${3997+6.65*earth*Math.cos(2*Math.PI*(time/86400))}px`
+      time+=(30*speednum)/1000
+      },30)
+      speedspan.innerHTML = `${speednum}`
+    })
+    
+    pause.addEventListener('click',function(){
+      flag++
+      if(flag%2===1){
+        clearInterval(timeid)
+        this.innerHTML = '继续'
+      }
+      else{
+        this.innerHTML = '暂停'
+        timeid = setInterval(function(){
+        earth2.style.transform = `rotate(${-time/240}deg)`
+        moon.style.left = `${3997+1.07*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(1.07,3/2))))}px`
+        moon.style.top = `${3997+1.07*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(1.07,3/2))))}px`
+        plane.style.left = `${3998+1.0015*earth*Math.sin(2*Math.PI*(time/57600))}px`
+        plane.style.top = `${3998+1.0015*earth*Math.cos(2*Math.PI*(time/57600))}px`
+        plane2.style.left = `${3998+1.0015*earth*Math.sin(2*Math.PI*(time/172800))}px`
+        plane2.style.top = `${3998+1.0015*earth*Math.cos(2*Math.PI*(time/172800))}px`
+        truemoon.style.left = `${3982.62+61.336*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(61.336,3/2))))}px`
+        truemoon.style.top = `${3982.62+61.336*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(61.336,3/2))))}px`
+        beidou.style.left = `${3982.62+4.374*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(4.374,3/2))))}px`
+        beidou.style.top = `${3982.62+4.374*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(4.374,3/2))))}px`
+        tongbu.style.left = `${3997+6.65*earth*Math.sin(2*Math.PI*(time/86400))}px`
+        tongbu.style.top = `${3997+6.65*earth*Math.cos(2*Math.PI*(time/86400))}px`
+        time+=(30*speednum)/1000
+        },30)
+        speedspan.innerHTML = `${speednum}`
+      }
+      
+    })
+    speedbutton.addEventListener('click',function(){
+      console.log('1')
+      if(flag%2===1){
+        pause.innerHTML = '暂停'
+        flag++
+      }
+      speednum = +prompt('请输入100-100000之间的倍率')
+      if(speednum>=100&&speednum<=100000){
+        alert('修改成功')
+        
+      }
+      else {
+        alert('非法输入，恢复默认值')
+        speednum = 1000
+      }
+        clearInterval(timeid)
+        timeid = setInterval(function(){
+      earth2.style.transform = `rotate(${-time/240}deg)`
+      moon.style.left = `${3997+1.07*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(1.07,3/2))))}px`
+      moon.style.top = `${3997+1.07*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(1.07,3/2))))}px`
+      plane.style.left = `${3998+1.0015*earth*Math.sin(2*Math.PI*(time/57600))}px`
+      plane.style.top = `${3998+1.0015*earth*Math.cos(2*Math.PI*(time/57600))}px`
+      plane2.style.left = `${3998+1.0015*earth*Math.sin(2*Math.PI*(time/172800))}px`
+      plane2.style.top = `${3998+1.0015*earth*Math.cos(2*Math.PI*(time/172800))}px`
+      truemoon.style.left = `${3982.62+61.336*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(61.336,3/2))))}px`
+      truemoon.style.top = `${3982.62+61.336*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(61.336,3/2))))}px`
+      beidou.style.left = `${3982.62+4.374*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(4.374,3/2))))}px`
+      beidou.style.top = `${3982.62+4.374*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(4.374,3/2))))}px`
+      tongbu.style.left = `${3997+6.65*earth*Math.sin(2*Math.PI*(time/86400))}px`
+      tongbu.style.top = `${3997+6.65*earth*Math.cos(2*Math.PI*(time/86400))}px`
+      time+=(30*speednum)/1000
+      },30)
+      speedspan.innerHTML = `${speednum}`
+    
+    })
+    move.addEventListener('click',function(){
+      x = +prompt('地球中心距离左边框，输入300-4000之间的值，单位：像素')
+      
+      if(x>=300&&x<=4000){
+        total.style.left = `${-4000+x}px`
+      }
+      else alert('非法输入')
+      y = +prompt('地球中心距离上边框，输入150-4000之间的值，单位：像素')
+      if(y>=150&&y<=4000){
+        total.style.top = `${-4000+y}px`
+      }
+      else alert('非法输入')
+    })
+    yincang.addEventListener('click',function(){
+      text.classList.toggle('hide')
+      text2.classList.toggle('hide')
+      text3.classList.toggle('hide')
+      i++
+      if(i%2 === 1){this.innerHTML = '显示文本'}
+      else {this.innerHTML = '隐藏文本'}
+    })
+  </script>
+</body>
+</html>

@@ -118,7 +118,7 @@ div.setbgc {
 /* 上面是太阳系的部分 */
 /* 下面是介绍和其他部分 */
 div.banner{
-    height: 400px;
+    height: 800px;
     background-color: #666;
 }
 div.banner div.wrapper {
@@ -178,6 +178,11 @@ div.wrapper ul.left a:hover {
 }
 div.wrapper div.bd div.left {
     width: 840px;
+    background-image: url(../素材库/earth.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    text-align: center;
 }
 div.wrapper div.bd div.right {
     width: 150px;

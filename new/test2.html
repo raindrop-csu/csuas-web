@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div.earth {
+      height: 12742px;
+      width: 12742px;
+      border-radius: 6371px;
+      background-color: #1E2E64;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      left: -6371px;
+      top: 500px;
+    }
+    div.earthsky {
+      height: 12942px;
+      width: 12942px;
+      border-radius: 6471px;
+      background-color: skyblue;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      left: -6471px;
+      top: 400px;
+      border: 3px dashed #fff;
+    }
+    div.space {
+      height: 1000px;
+      width: 2000px;
+      background-color: #333;
+      position: absolute;
+      left: -10px;
+      top: -10px;
+      /* overflow: hidden; */
+    }
+    div.text1 {
+      left: 300px;
+      top: 600px;
+      position: absolute;
+      font-size: 48px;
+      color: #fff;
+    }
+    div.text2 {
+      left: 300px;
+      top: 440px;
+      position: absolute;
+      font-size: 24px;
+      color: #333;
+    }
+    a.text4 {
+      left: 1000px;
+      top: 440px;
+      position: absolute;
+      font-size: 24px;
+      color: #fff;
+      text-decoration: none;
+    }
+    a.text4:hover {
+      color: yellow;
+    }
+    div.text3 {
+      left: 800px;
+      top: 100px;
+      position: absolute;
+      font-size: 36px;
+      color: #fff;
+    }
+    .plane {
+      height: 4px;
+      width: 4px;
+      border-radius: 2px;
+      background-color: red;
+      left: -2px;
+      top: 6869px;
+      position: absolute;
+    }
+    .moon {
+      height: 6px;
+      width: 6px;
+      border-radius: 3px;
+      background-color: #fff;
+      left: -3px;
+      top: 6868px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div class="space">
+    <div class="earthsky">
+    </div>
+    <div class="earth">
+    </div>
+    <div class="text1">地球</div>
+    <div class="text2">大气层</div>
+    <div class="text3">太空</div>
+    <div class="plane"></div>
+    <div class="moon"></div>
+    <a class="text4" href="#">卡门线</a>
+  </div>
+  <script>
+    const earth = 6371
+    const plane = document.querySelector('div.plane')
+    const moon = document.querySelector('div.moon')
+    let time = 0
+    const round = 5062.383
+    let timeid = setInterval(function(){
+      plane.style.left = `${-2-(1.0015*earth*Math.sin(2*Math.PI*(time/172800)))}px`
+      plane.style.top = `${6869-(1.0015*earth*Math.cos(2*Math.PI*(time/172800)))}px`
+      moon.style.left = `${-3-(1.07*earth*Math.sin(2*Math.PI*(time/(round*Math.pow(1.07,3/2)))))}px`
+      moon.style.top = `${6868-(1.07*earth*Math.cos(2*Math.PI*(time/(round*Math.pow(1.07,3/2)))))}px`
+      time-=0.3
+    },30)
+  </script>
+</body>
+</html>
